@@ -9,9 +9,11 @@ const interests = [
 ]
 
 const hobbies = [
-  "listening to audiobooks",
+  "reading & listening to audiobooks",
   "exploring museums in SF",
   "drinking sparkling water",
+  "practicing badminton trickshots",
+  "discovering hiking trails",
   "thinking about pushing to git",
 ]
 
