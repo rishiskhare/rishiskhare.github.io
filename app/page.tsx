@@ -71,7 +71,7 @@ export default function Home() {
             </p>
 
             <p className="mt-5">
-              Previously, I used to <a href="https://www.worldcubeassociation.org/persons/2016KHAR03" target="_blank" rel="noopener noreferrer" className="link">speedsolve Rubik's cubes</a>. When I'm not pushing to git, you can find me{" "}
+              Previously, I <a href="https://www.worldcubeassociation.org/persons/2016KHAR03" target="_blank" rel="noopener noreferrer" className="link">speedsolved Rubik's cubes</a>. When I'm not pushing to git, you can find me{" "}
               <a className="link" onClick={cycleHobby}>
                 {hobbies[hobbyIndex]}
               </a>
