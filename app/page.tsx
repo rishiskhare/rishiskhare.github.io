@@ -68,7 +68,7 @@ export default function Home() {
             <p className="mt-5">
               I've worked as an undergraduate researcher at the <b>Berkeley AI Research (BAIR) Lab</b>,
               creating LLM parsers for large-scale security logs and enabling sample-efficient prompt optimization for
-              data-contrained reasoning tasks. I've also spent 1 year interning at <b>T-Mobile Research</b>, finetuning
+              data-constrained reasoning tasks. I've also spent 1 year interning at <b>T-Mobile Research</b>, finetuning
               telco-RAG systems for domain adaptation and building evaluation frameworks for synthetic datasets.
               I'll be interning at <b>Amazon</b> on the shopping team this summer.
             </p>
