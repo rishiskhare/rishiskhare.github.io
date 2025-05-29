@@ -88,7 +88,7 @@ export default function Home() {
 
           <div className="flex flex-wrap gap-3 justify-center mt-8">
             {[
-              { href: "https://drive.google.com/file/d/1_A7EGMNfi4QL2NCgWcBEE39r_g7kSVMC/view?usp=sharing", label: "resume" },
+              { href: "https://drive.google.com/file/d/1alYXNIwHRUtblUzGPGK3b8kSBHmdDIMx/view?usp=sharing", label: "resume" },
               { href: "https://www.linkedin.com/in/rishi-khare/", label: "linkedin" },
               { href: "https://github.com/rishiskhare", label: "github" },
               { href: "https://scholar.google.com/citations?user=1SFrDE4AAAAJ&hl=en", label: "scholar" },
