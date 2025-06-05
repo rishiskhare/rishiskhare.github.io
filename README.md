@@ -2,5 +2,5 @@
 
 ## Links
 - Main link: www.rishiskhare.com
-- GitHub Pages: www.rishiskhare.github.io
+- GitHub pages: www.rishiskhare.github.io
 - Also works: www.rishikhare.me
