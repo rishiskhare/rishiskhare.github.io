@@ -61,16 +61,16 @@ export default function Home() {
             </ul>
 
             <p className="mt-5">
-              These days, I'm studying <b>computer science</b> at <b>UC Berkeley</b>, and I'll be at <b>Georgia Tech</b>{" "}
-              as a master's student this fall.
+              These days, I'm studying <b>computer science</b> at <b>Georgia Tech</b> as a master's student, and I recently graduated from <b>UC Berkeley</b>{" "}
+              with a bachelor's degree in <b>computer science</b>.
             </p>
 
             <p className="mt-5">
               I've worked as an undergraduate researcher at the <b>Berkeley AI Research (BAIR) Lab</b>,
               creating LLM parsers for large-scale security logs and enabling sample-efficient prompt optimization for
               data-constrained reasoning tasks. I've also spent 1 year interning at <b>T-Mobile Research</b>, finetuning
-              telco-RAG systems for domain adaptation and building evaluation frameworks for synthetic datasets.
-              I'll be interning at <b>Amazon</b> on the shopping team this summer.
+              telco-RAG systems for domain adaptation and building evaluation frameworks for synthetic datasets (and filing <b>2 USPTO utility patents</b> for my work).
+              I'm interning at <b>Amazon</b> on the autonomous shopping agent framework this summer.
             </p>
 
             <p className="mt-5">
