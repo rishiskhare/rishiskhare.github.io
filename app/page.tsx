@@ -70,7 +70,7 @@ export default function Home() {
               creating LLM parsers for large-scale security logs and enabling sample-efficient prompt optimization for
               data-constrained reasoning tasks. I've also spent 1 year interning at <b>T-Mobile Research</b>, finetuning
               telco-RAG systems for domain adaptation and building evaluation frameworks for synthetic datasets (and filing <b>2 USPTO utility patents</b> for my work).
-              I'm interning at <b>Amazon</b> on the autonomous shopping agent framework this summer.
+              I'm interning at <b>Amazon</b> this summer, evaluating the autonomous shopping agent framework.
             </p>
 
             <p className="mt-5">
