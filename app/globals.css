@@ -139,6 +139,7 @@ h1 {
   box-shadow: 2px 2px 0px #000;
   font-family: "IBM Plex Mono", monospace;
   margin: 0.25rem;
+  transition: transform 0.2s ease, box-shadow 0.2s ease, background-color 0.2s ease;
 }
 
 .social-link:hover {

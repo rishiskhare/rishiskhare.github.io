@@ -67,10 +67,10 @@ export default function Home() {
 
             <p className="mt-5">
               I've worked as an undergraduate researcher at the <b>Berkeley AI Research (BAIR) Lab</b>,
-              creating LLM parsers for large-scale security logs and enabling sample-efficient prompt optimization for
+              creating <a href="https://sky.cs.berkeley.edu/project/matryoshka/" target="_blank" rel="noopener noreferrer" className="link">LLM parsers for large-scale security logs</a> and enabling sample-efficient prompt optimization for
               data-constrained reasoning tasks. I've also spent 1 year interning at <b>T-Mobile Research</b>, finetuning
               telco-RAG systems for domain adaptation and building evaluation frameworks for synthetic datasets (and filing <b>2 USPTO utility patents</b> for my work).
-              I'm interning at <b>Amazon</b> this summer, evaluating the autonomous multi-agent shopping framework.
+              I'm interning at <b>Amazon</b> this summer, evaluating the autonomous multi-agent shopping framework. I also created <a href="https://github.com/rishiskhare/perplexity-on-google-search" target="_blank" rel="noopener noreferrer" className="link">Perplexity on Google Search</a>.
             </p>
 
             <p className="mt-5">
