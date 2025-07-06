@@ -66,23 +66,22 @@ export default function Home() {
             </p>
 
             <p className="mt-5">
-              I've worked as an undergraduate researcher at the <b>Berkeley AI Research (BAIR) Lab</b>,
-              creating <a href="https://sky.cs.berkeley.edu/project/matryoshka/" target="_blank" rel="noopener noreferrer" className="link">LLM parsers for large-scale security logs</a> and enabling sample-efficient prompt optimization for
-              data-constrained reasoning tasks. I've also spent 1 year interning at <b>T-Mobile Research</b>, finetuning
+              Previously, I worked as an undergraduate researcher at the <b>Berkeley AI Research (BAIR) Lab</b> with the <a href="https://sky.cs.berkeley.edu/project/matryoshka/" target="_blank" rel="noopener noreferrer" className="link">AI security group</a>.
+              I've also spent a year interning at <b>T-Mobile Research</b>, finetuning
               telco-RAG systems for domain adaptation and building evaluation frameworks for synthetic datasets (and filing <b>2 USPTO utility patents</b> for my work).
-              I'm interning at <b>Amazon</b> this summer, evaluating the autonomous multi-agent shopping framework. I also created <a href="https://github.com/rishiskhare/perplexity-on-google-search" target="_blank" rel="noopener noreferrer" className="link">Perplexity on Google Search</a>.
+              I've also interned at <b>Amazon</b>, evaluating the autonomous multi-agent shopping framework.
             </p>
 
             <p className="mt-5">
-              Previously, I <a href="https://www.worldcubeassociation.org/persons/2016KHAR03" target="_blank" rel="noopener noreferrer" className="link">speedsolved Rubik's cubes</a>. When I'm not pushing to git, you can find me{" "}
-              <a className="link" onClick={cycleHobby}>
+              Growing up, I <a href="https://www.worldcubeassociation.org/persons/2016KHAR03" target="_blank" rel="noopener noreferrer" className="link">speedsolved Rubik's cubes</a>. When I'm not pushing to git, you can find me{" "}
+              <a className="link hobby-link" onClick={cycleHobby}>
                 {hobbies[hobbyIndex]}
               </a>
               .
             </p>
 
             <p className="mt-5">
-              Reach me directly at <b>rishi.khare [at] berkeley [dot] edu</b>
+              I'm constantly looking to <a href="https://github.com/rishiskhare/perplexity-on-google-search" target="_blank" rel="noopener noreferrer" className="link">build something new</a>. Reach me anytime at <b>rishi.khare [at] berkeley [dot] edu.</b>
             </p>
           </div>
 
@@ -91,7 +90,6 @@ export default function Home() {
               { href: "https://drive.google.com/file/d/1alYXNIwHRUtblUzGPGK3b8kSBHmdDIMx/view?usp=sharing", label: "resume" },
               { href: "https://www.linkedin.com/in/rishi-khare/", label: "linkedin" },
               { href: "https://github.com/rishiskhare", label: "github" },
-              { href: "https://scholar.google.com/citations?user=1SFrDE4AAAAJ&hl=en", label: "scholar" },
               { href: "https://x.com/rishiskhare", label: "x" },
               { href: "https://www.instagram.com/rishiskhare/", label: "instagram" },
             ].map((link, index) => (
