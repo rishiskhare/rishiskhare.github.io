@@ -92,6 +92,7 @@ export default function Home() {
               { href: "https://github.com/rishiskhare", label: "github" },
               { href: "https://x.com/rishiskhare", label: "x" },
               { href: "https://www.instagram.com/rishiskhare/", label: "instagram" },
+              { href: "https://scholar.google.com/citations?hl=en&view_op=list_works&gmla=ANZ5fUP-D0RMLmTn3pZ9BBawlICFWs8WBxt3Ruir1vK9oZ_H5vrFHFiewFtE1y1EIX5RTAarwfun-EhDV8_z-g&user=1SFrDE4AAAAJ", label: "scholar" },
             ].map((link, index) => (
               <a key={index} href={link.href} target="_blank" rel="noopener noreferrer" className="social-link rounded-md">
                 {link.label}
