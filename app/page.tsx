@@ -61,7 +61,7 @@ export default function Home() {
             </ul>
 
             <p className="mt-5">
-              These days, I'm studying <b>computer science</b> at <b>Georgia Tech</b> as a master's student, and I recently graduated from <b>UC Berkeley</b>{" "}
+              These days, I'm studying <b>computer science</b> at <b>Georgia Tech</b> as a master's student, while also pursuing efficent ML research at the EIC Lab with Prof. Celine Lin. I recently graduated from <b>UC Berkeley</b>{" "}
               with a bachelor's degree in <b>computer science</b>.
             </p>
 
@@ -69,7 +69,7 @@ export default function Home() {
               Previously, I worked as an undergraduate researcher at the <b>Berkeley AI Research (BAIR) Lab</b> with the <a href="https://sky.cs.berkeley.edu/project/matryoshka/" target="_blank" rel="noopener noreferrer" className="link">AI security group</a>.
               I've also spent a year interning at <b>T-Mobile Research</b>, finetuning
               telco-RAG systems for domain adaptation and building evaluation frameworks for synthetic datasets (and filing <b>2 USPTO utility patents</b> for my work).
-              I've also interned at <b>Amazon</b>, evaluating the autonomous multi-agent shopping framework.
+              I've also interned at <b>Amazon</b>, evaluating the shopping multi-agent framework.
             </p>
 
             <p className="mt-5">
