@@ -29,7 +29,7 @@ export default function Home() {
   }
 
   return (
-    <div className="flex min-h-screen items-center justify-center px-8 py-12">
+    <div className="flex min-h-screen items-center justify-center px-8 py-8">
       <div className="max-w-4xl w-full">
         <h1 className="text-center retro-heading text-5xl wave">
             {greetingCharacters.map((letter, index) => (
