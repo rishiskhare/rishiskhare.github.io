@@ -68,8 +68,9 @@ export default function Home() {
             <p className="mt-5">
               Previously, I worked as an undergraduate researcher at the <b>Berkeley AI Research (BAIR) Lab</b> with the <a href="https://sky.cs.berkeley.edu/project/matryoshka/" target="_blank" rel="noopener noreferrer" className="link">AI security group</a>.
               I've also spent a year interning at <b>T-Mobile Research</b>, finetuning
-              telco-RAG systems for domain adaptation and building evaluation frameworks for synthetic datasets (and filing <b>3 USPTO utility patents</b> for my work on RFID tag location detection and language modeling for dynamicdatacenter routing).
-              I've also interned at <b>Amazon</b>, evaluating the shopping multi-agent framework.
+              telco-RAG systems for domain adaptation and building evaluation frameworks for synthetic datasets (and filing <b>3 USPTO utility patents</b> for my work on RFID tag location detection and language modeling for dynamic datacenter routing).
+              I've also interned at <b>Amazon</b> on the agentic shopping team, where I developed and deployed production-ready agent trajectory evaluation infrastructure using AWS Lambda and S3 for the
+              shopping multi-agent AI framework.
             </p>
 
             <p className="mt-5">
@@ -81,7 +82,7 @@ export default function Home() {
             </p>
 
             <p className="mt-5">
-              I'm constantly looking to <a href="https://github.com/rishiskhare/perplexity-on-google-search" target="_blank" rel="noopener noreferrer" className="link">build something new</a>. Reach me anytime at <b>rishi.khare [at] berkeley [dot] edu.</b>
+              I'm constantly looking to <a href="https://github.com/rishiskhare/perplexity-on-google-search" target="_blank" rel="noopener noreferrer" className="link">build something new</a>. Reach me anytime at <b>rishiskhare [at] gmail [dot] com.</b>
             </p>
           </div>
 
