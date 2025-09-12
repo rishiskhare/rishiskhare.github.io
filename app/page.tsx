@@ -43,7 +43,7 @@ export default function Home() {
           </div>
         </div>
 
-        <div className="text-base mt-8 space-y-8">
+        <div className="text-sm mt-8 space-y-8">
           <div className="relative md:p-6 md:bg-white md:border-[1.5px] md:border-solid md:border-[rgba(0,0,0,0.85)] md:shadow-[4px_4px_0px_#000] rounded-md">
             <div className="hidden lg:block float-right ml-6 mb-4 mt-0">
               <div className="profile-image-container-circle w-[240px] h-[240px]">
@@ -69,7 +69,7 @@ export default function Home() {
               Previously, I worked as an undergraduate researcher at the <b>Berkeley AI Research (BAIR) Lab</b> with the <a href="https://sky.cs.berkeley.edu/project/matryoshka/" target="_blank" rel="noopener noreferrer" className="link">AI security group</a>.
               I've also spent a year interning at <b>T-Mobile Research</b>, finetuning
               telco-RAG systems for domain adaptation and building evaluation frameworks for synthetic datasets (and filing <b>3 USPTO utility patents</b> for my work on RFID tag location detection and language modeling for dynamic datacenter routing).
-              I've also interned at <b>Amazon</b> on the agentic shopping team, where I developed and deployed production-ready agent trajectory evaluation infrastructure using AWS Lambda and S3 for the
+              I've also interned at <b>Amazon</b> on the agentic shopping team, where I deployed trajectory evaluation infrastructure for the
               shopping multi-agent AI framework.
             </p>
 
