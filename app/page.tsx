@@ -68,7 +68,7 @@ export default function Home() {
             <p className="mt-5">
               Previously, I worked as an undergraduate researcher at the <b>Berkeley AI Research (BAIR) Lab</b> with the <a href="https://sky.cs.berkeley.edu/project/matryoshka/" target="_blank" rel="noopener noreferrer" className="link">AI security group</a>.
               I've also spent a year interning at <b>T-Mobile Research</b>, finetuning
-              telco-RAG systems for domain adaptation and building evaluation frameworks for synthetic datasets (and filing <b>2 USPTO utility patents</b> for my work).
+              telco-RAG systems for domain adaptation and building evaluation frameworks for synthetic datasets (and filing <b>3 USPTO utility patents</b> for my work on RFID tag location detection and language modeling for dynamicdatacenter routing).
               I've also interned at <b>Amazon</b>, evaluating the shopping multi-agent framework.
             </p>
 
