@@ -27,50 +27,18 @@ h1 {
 .link {
   text-decoration: underline;
   cursor: pointer;
-  color: #e45b40;
+  color: #b83c22;
   border-radius: 2px;
 }
 
 .link:hover {
-  color: #e45b40;
+  color: #b83c22;
   opacity: 0.5;
 }
 
 .bio p,
 .bio li {
   text-wrap: pretty;
-}
-
-.social-link {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  padding: 0.5rem 1rem;
-  border: 1.5px solid #000;
-  text-decoration: none;
-  color: #000;
-  background-color: #fff;
-  box-shadow: 2px 2px 0px #000;
-  font-family: var(--font-plex-mono), monospace;
-}
-
-@media (prefers-reduced-motion: no-preference) {
-  .social-link {
-    transition: transform 0.1s ease, box-shadow 0.1s ease, background-color 0.1s ease;
-  }
-}
-
-@media (hover: hover) {
-  .social-link:hover {
-    transform: translate(-2px, -2px);
-    box-shadow: 4px 4px 0px #000;
-    background-color: rgba(254, 194, 174, 0.2);
-  }
-}
-
-.social-link:active {
-  transform: translate(2px, 2px);
-  box-shadow: 0 0 0 #000;
 }
 
 .retro-heading {
@@ -109,7 +77,6 @@ h1 {
   border: 1.5px solid rgba(0, 0, 0, 0.85);
   border-radius: 50%;
   overflow: hidden;
-  box-shadow: 3px 3px 0px #000;
   background-color: #fff;
 }
 
@@ -118,6 +85,17 @@ h1 {
   height: 100%;
   object-fit: cover;
   display: block;
+}
+
+.paper-thumb {
+  width: 100%;
+  height: auto;
+  aspect-ratio: 16 / 10;
+  object-fit: contain;
+  padding: 4px;
+  background-color: #fff;
+  border: 1.5px solid #000;
+  border-radius: 4px;
 }
 
 .hobby-link {
