@@ -4,8 +4,8 @@ import { useState, useSyncExternalStore } from "react"
 
 const interests = [
   "efficient language model inference",
-  "recursive self-improving AI systems",
-  "diagnosing why coding agents fail in production scenarios",
+  "recursively self-improving AI systems",
+  "failure diagnosis for coding agents in production",
 ]
 
 const hobbies = [
