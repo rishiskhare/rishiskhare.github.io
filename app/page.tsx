@@ -1,6 +1,6 @@
 "use client"
 
-import { useState } from "react"
+import { useState, useSyncExternalStore } from "react"
 
 const interests = [
   "efficient natural language processing",
@@ -17,15 +17,34 @@ const hobbies = [
   "thinking about pushing to git",
 ]
 
-const greeting = "Hi, I'm Rishi!"
+const greeting = "Hi, I’m Rishi!"
+
+let clientHobbyIndex: number | null = null
+
+function subscribeToHobbyIndex() {
+  return () => {}
+}
+
+function getClientHobbyIndex() {
+  if (clientHobbyIndex === null) {
+    clientHobbyIndex = Math.floor(Math.random() * hobbies.length)
+  }
+  return clientHobbyIndex
+}
 
 export default function Home() {
-  const [hobbyIndex, setHobbyIndex] = useState(Math.floor(Math.random() * hobbies.length))
+  const randomHobbyIndex = useSyncExternalStore(
+    subscribeToHobbyIndex,
+    getClientHobbyIndex,
+    () => 0,
+  )
+  const [chosenHobbyIndex, setChosenHobbyIndex] = useState<number | null>(null)
+  const hobbyIndex = chosenHobbyIndex ?? randomHobbyIndex
 
   const greetingCharacters = greeting.split("").map((char) => (char === " " ? "\u00A0" : char))
 
   function cycleHobby() {
-    setHobbyIndex((hobbyIndex + 1) % hobbies.length)
+    setChosenHobbyIndex((hobbyIndex + 1) % hobbies.length)
   }
 
   return (
@@ -52,7 +71,7 @@ export default function Home() {
             </div>
 
             <p>
-              I'm a <b>researcher</b> and <b>engineer</b> fascinated by:
+              I’m a <b>researcher</b> and <b>engineer</b> fascinated by:
             </p>
             <ul className="list-disc pl-8 mt-3 mb-5 space-y-2">
               {interests.map((interest, index) => (
@@ -61,20 +80,20 @@ export default function Home() {
             </ul>
 
             <p className="mt-5">
-              These days, I'm studying <b>computer science</b> at <b>Georgia Tech</b> as a master's student, while also pursuing efficent ML research at the EIC Lab with Prof. Celine Lin. I recently graduated from <b>UC Berkeley</b>{" "}
-              with a bachelor's degree in <b>computer science</b>.
+              These days, I’m studying <b>computer science</b> at <b>Georgia Tech</b> as a master’s student, while also pursuing efficent ML research at the EIC Lab with Prof. Celine Lin. I recently graduated from <b>UC Berkeley</b>{" "}
+              with a bachelor’s degree in <b>computer science</b>.
             </p>
 
             <p className="mt-5">
               Previously, I worked as an undergraduate researcher at the <b>Berkeley AI Research (BAIR) Lab</b> with the <a href="https://sky.cs.berkeley.edu/project/matryoshka/" target="_blank" rel="noopener noreferrer" className="link">AI security group</a>.
-              I've also spent a year interning at <b>T-Mobile Research</b>, finetuning
+              I’ve also spent a year interning at <b>T-Mobile Research</b>, finetuning
               telco-RAG systems for domain adaptation and building evaluation frameworks for synthetic datasets (and filing <b>3 USPTO utility patents</b> for my work on RFID tag location detection and language modeling for dynamic datacenter routing).
-              I've also interned at <b>Amazon</b> on the agentic shopping team, where I deployed trajectory evaluation infrastructure for the
+              I’ve also interned at <b>Amazon</b> on the agentic shopping team, where I deployed trajectory evaluation infrastructure for the
               shopping multi-agent AI framework.
             </p>
 
             <p className="mt-5">
-              Growing up, I <a href="https://www.worldcubeassociation.org/persons/2016KHAR03" target="_blank" rel="noopener noreferrer" className="link">speedsolved Rubik's cubes</a>. When I'm not pushing to git, you can find me{" "}
+              Growing up, I <a href="https://www.worldcubeassociation.org/persons/2016KHAR03" target="_blank" rel="noopener noreferrer" className="link">speedsolved Rubik’s cubes</a>. When I’m not pushing to git, you can find me{" "}
               <a className="link hobby-link" onClick={cycleHobby}>
                 {hobbies[hobbyIndex]}
               </a>
@@ -82,7 +101,7 @@ export default function Home() {
             </p>
 
             <p className="mt-5">
-              I'm constantly looking to <a href="https://github.com/rishiskhare/perplexity-on-google-search" target="_blank" rel="noopener noreferrer" className="link">build something new</a>. Reach me anytime at <b>rishiskhare [at] gmail [dot] com.</b>
+              I’m constantly looking to <a href="https://github.com/rishiskhare/perplexity-on-google-search" target="_blank" rel="noopener noreferrer" className="link">build something new</a>. Reach me anytime at <b>rishiskhare [at] gmail [dot] com.</b>
             </p>
           </div>
 
