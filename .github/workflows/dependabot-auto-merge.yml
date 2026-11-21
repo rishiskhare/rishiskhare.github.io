@@ -5,6 +5,7 @@ on: pull_request_target
 permissions:
   contents: write
   pull-requests: write
+  actions: write
 
 jobs:
   auto-merge:
@@ -18,10 +19,28 @@ jobs:
           github-token: ${{ secrets.GITHUB_TOKEN }}
 
       - name: Enable auto-merge for patch and minor updates
+        id: merge
         if: >-
           steps.meta.outputs.update-type == 'version-update:semver-patch' ||
           steps.meta.outputs.update-type == 'version-update:semver-minor'
         run: gh pr merge --auto --squash "$PR_URL"
+        env:
+          PR_URL: ${{ github.event.pull_request.html_url }}
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Deploy after merge
+        if: steps.merge.outcome == 'success'
+        run: |
+          for _ in $(seq 1 30); do
+            state=$(gh pr view "$PR_URL" --json state --jq .state)
+            if [ "$state" = "MERGED" ]; then
+              gh workflow run "Deploy Next.js site to Pages" --ref main
+              exit 0
+            fi
+            sleep 10
+          done
+          echo "The pull request did not merge within 5 minutes."
+          exit 1
         env:
           PR_URL: ${{ github.event.pull_request.html_url }}
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
