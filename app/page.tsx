@@ -101,7 +101,7 @@ export default function Home() {
             </p>
 
             <p className="mt-5">
-              I’m constantly looking to <a href="https://github.com/rishiskhare/perplexity-on-google-search" target="_blank" rel="noopener noreferrer" className="link">build something new</a>. Reach me anytime at <b>rishiskhare [at] gmail [dot] com.</b>
+              I’m constantly looking to <a href="https://github.com/rishiskhare/parrot" target="_blank" rel="noopener noreferrer" className="link">build something new</a>. Reach me anytime at <b>rishiskhare [at] gmail [dot] com.</b>
             </p>
           </div>
 
