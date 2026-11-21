@@ -3,9 +3,9 @@
 import { useState, useSyncExternalStore } from "react"
 
 const interests = [
-  "efficient natural language processing",
-  "reinforcement learning for LLM reasoning",
-  "agentic function-calling and information retrieval",
+  "efficient language model inference",
+  "recursive self-improving AI systems",
+  "diagnosing why coding agents fail in production scenarios",
 ]
 
 const hobbies = [
@@ -80,7 +80,7 @@ export default function Home() {
             </ul>
 
             <p className="mt-5">
-              These days, I’m studying <b>computer science</b> at <b>Georgia Tech</b> as a master’s student, while also pursuing efficient ML research at the EIC Lab with Prof. Celine Lin. I recently graduated from <b>UC Berkeley</b>{" "}
+              These days, I’m studying <b>computer science</b> at <b>Georgia Tech</b> as a master’s student, while also pursuing efficient ML research with Prof. Zishen Wan. I’m a system software intern at <b>NVIDIA</b>, where I work on self-improving coding agents that triage bugs. I graduated from <b>UC Berkeley</b>{" "}
               with a bachelor’s degree in <b>computer science</b>.
             </p>
 
