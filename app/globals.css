@@ -2,17 +2,9 @@
 @tailwind components;
 @tailwind utilities;
 
-@font-face {
-  font-family: "Tiempos Headline";
-  src: url("/fonts/TiemposHeadline-Bold.otf") format("opentype");
-  font-weight: normal;
-  font-style: normal;
-  font-display: swap;
-}
-
 body {
   background-color: #fbf5ef;
-  font-family: "IBM Plex Mono", monospace;
+  font-family: var(--font-plex-mono), monospace;
   color: rgba(0, 0, 0, 0.85);
   margin: 0;
   padding: 0;
@@ -21,7 +13,7 @@ body {
 }
 
 h1 {
-  font-family: "IBM Plex Mono", serif;
+  font-family: var(--font-plex-mono), serif;
   line-height: 1.1;
   letter-spacing: 2px;
   font-weight: normal;
@@ -51,7 +43,7 @@ h1 {
   color: #000;
   background-color: #fff;
   box-shadow: 2px 2px 0px #000;
-  font-family: "IBM Plex Mono", monospace;
+  font-family: var(--font-plex-mono), monospace;
   margin: 0.25rem;
   transition: transform 0.1s ease, box-shadow 0.1s ease, background-color 0.1s ease;
 }
@@ -63,7 +55,7 @@ h1 {
 }
 
 .retro-heading {
-  font-family: "Tiempos Headline", serif;
+  font-family: var(--font-tiempos), serif;
   margin-top: 1rem;
 }
 
