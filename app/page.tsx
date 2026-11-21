@@ -1,12 +1,6 @@
 "use client"
 
-import { useState, useSyncExternalStore } from "react"
-
-const interests = [
-  "efficient language model inference",
-  "recursively self-improving AI systems",
-  "failure diagnosis for coding agents in production",
-]
+import { Fragment, useState, useSyncExternalStore } from "react"
 
 const hobbies = [
   "reading & listening to audiobooks",
@@ -18,6 +12,23 @@ const hobbies = [
 ]
 
 const greeting = "Hi, I’m Rishi!"
+
+// One color per character position, blue to red, matching the old CSS.
+const greetingColors = ["#336ee2", "#4e64d6", "#695aca", "#8450be", "#9f46b2", "#ba3ca6", "#c83a92", "#d5387e", "#e2366a", "#ee3456", "#f63342", "#ff0000", "#ff0000", "#ff0000"]
+
+const greetingWords = greeting.split(" ").map((word, w, words) => {
+  const start = words.slice(0, w).join(" ").length + (w > 0 ? 1 : 0)
+  return [...word].map((char, c) => {
+    const index = start + c
+    return {
+      char,
+      index,
+      color: greetingColors[Math.min(index, greetingColors.length - 1)],
+      // Stagger each letter's bounce by 0.1s; negative delays start the wave mid-motion on load.
+      delay: `${(index - 20) / 10}s`,
+    }
+  })
+})
 
 let clientHobbyIndex: number | null = null
 
@@ -41,71 +52,76 @@ export default function Home() {
   const [chosenHobbyIndex, setChosenHobbyIndex] = useState<number | null>(null)
   const hobbyIndex = chosenHobbyIndex ?? randomHobbyIndex
 
-  const greetingCharacters = greeting.split("").map((char) => (char === " " ? "\u00A0" : char))
-
   function cycleHobby() {
     setChosenHobbyIndex((hobbyIndex + 1) % hobbies.length)
   }
 
   return (
-    <div className="flex min-h-screen items-center justify-center px-8 py-8">
-      <div className="max-w-4xl w-full">
-        <h1 className="text-center retro-heading text-5xl wave">
-            {greetingCharacters.map((letter, index) => (
-              <span key={index}>{letter}</span>
-            ))}
+    <div className="flex min-h-dvh items-center justify-center px-8 py-10">
+      <div className="max-w-[42rem] w-full">
+        <h1 className="text-center retro-heading text-5xl" aria-label={greeting}>
+          {greetingWords.map((letters, w) => (
+            <Fragment key={w}>
+              {w > 0 && " "}
+              <span className="wave-word" aria-hidden="true">
+                {letters.map(({ char, index, color, delay }) => (
+                  <span key={index} className="wave-letter" style={{ color, animationDelay: delay }}>
+                    {char}
+                  </span>
+                ))}
+              </span>
+            </Fragment>
+          ))}
         </h1>
 
-        <div className="lg:hidden flex justify-center mt-8 mb-4">
-          <div className="profile-image-container-circle w-[160px] h-[160px] md:w-[220px] md:h-[220px]">
-            <img src="/rishi-pic.webp" alt="Rishi Khare" className="profile-image" />
-          </div>
-        </div>
-
-        <div className="text-sm mt-8 space-y-8">
-          <div className="relative md:p-6 md:bg-white md:border-[1.5px] md:border-solid md:border-[rgba(0,0,0,0.85)] md:shadow-[4px_4px_0px_#000] rounded-md">
-            <div className="hidden lg:block float-right ml-6 mb-4 mt-0">
-              <div className="profile-image-container-circle w-[240px] h-[240px]">
-                <img src="/rishi-pic.webp" alt="Rishi Khare" className="profile-image" />
+        <div className="text-sm mt-6 space-y-6">
+          <div className="md:p-6 md:bg-white md:border-[1.5px] md:border-solid md:border-[rgba(0,0,0,0.85)] md:shadow-[4px_4px_0px_#000] rounded-md">
+            <div className="bio">
+              <div className="flex flex-col-reverse items-center gap-6 md:flex-row md:gap-8">
+                <div className="w-full min-w-0 md:basis-[63%]">
+                  <p>
+                    I’m a <b>researcher</b> and <b>engineer</b>. I build algorithms and systems that help foundation models accelerate scientific discovery, especially in system development and architecture design. I work on:
+                  </p>
+                  <ul className="list-disc pl-8 mt-3 space-y-2">
+                    <li>self-improving AI systems, especially for <span className="whitespace-nowrap">difficult-to-verify</span> domains</li>
+                    <li>efficient inference and training at scale</li>
+                  </ul>
+                </div>
+                <div className="flex justify-center md:basis-[37%]">
+                  <div className="profile-image-container-circle w-[160px] h-[160px] md:w-full md:h-auto md:aspect-square">
+                    <img src="/rishi-pic.webp" alt="Rishi Khare" className="profile-image" />
+                  </div>
+                </div>
               </div>
+
+              <p className="mt-4">
+                I envision a future with <span className="whitespace-nowrap">on-device</span> intelligence that augments human craftsmanship, rather than replacing it.
+              </p>
+
+              <p className="mt-4">
+                Right now, I’m finishing my CS master’s at <b>Georgia Tech</b> with Prof. Zishen Wan and interning at <b>NVIDIA</b>, building self-improving agents that triage GPU driver bugs.
+              </p>
+
+              <p className="mt-4">
+                Before that, I studied CS and data science at <b>UC Berkeley</b>, where I <span className="whitespace-nowrap">co-authored</span>{" "}
+                <a href="https://github.com/gepa-ai/gepa" target="_blank" rel="noopener noreferrer" className="link">GEPA</a>, an evolutionary algorithm that lets AI systems improve by reflecting on their own prior attempts at a task, without retraining model weights. I also spent a year at <b>T-Mobile Research</b>, where I <span className="whitespace-nowrap">fine-tuned</span> local models for telecommunications and filed three patents.
+              </p>
+
+              <p className="mt-4">
+                Growing up, I <a href="https://www.worldcubeassociation.org/persons/2016KHAR03" target="_blank" rel="noopener noreferrer" className="link">speedsolved Rubik’s cubes</a>. When I’m not pushing to git, you can find me{" "}
+                <button type="button" className="link hobby-link" onClick={cycleHobby}>
+                  {hobbies[hobbyIndex]}
+                </button>
+                .
+              </p>
+
+              <p className="mt-4">
+                Reach me anytime at <b>rishiskhare [at] gmail [dot] com</b>.
+              </p>
             </div>
-
-            <p>
-              I’m a <b>researcher</b> and <b>engineer</b> fascinated by:
-            </p>
-            <ul className="list-disc pl-8 mt-3 mb-5 space-y-2">
-              {interests.map((interest, index) => (
-                <li key={index}>{interest}</li>
-              ))}
-            </ul>
-
-            <p className="mt-5">
-              These days, I’m studying <b>computer science</b> at <b>Georgia Tech</b> as a master’s student, while also pursuing efficient ML research with Prof. Zishen Wan. I’m a system software intern at <b>NVIDIA</b>, where I work on self-improving coding agents that triage bugs. I graduated from <b>UC Berkeley</b>{" "}
-              with a bachelor’s degree in <b>computer science</b>.
-            </p>
-
-            <p className="mt-5">
-              Previously, I worked as an undergraduate researcher at the <b>Berkeley AI Research (BAIR) Lab</b> with the <a href="https://sky.cs.berkeley.edu/project/matryoshka/" target="_blank" rel="noopener noreferrer" className="link">AI security group</a>.
-              I’ve also spent a year interning at <b>T-Mobile Research</b>, finetuning
-              telco-RAG systems for domain adaptation and building evaluation frameworks for synthetic datasets (and filing <b>3 USPTO utility patents</b> for my work on RFID tag location detection and language modeling for dynamic datacenter routing).
-              I’ve also interned at <b>Amazon</b> on the agentic shopping team, where I deployed trajectory evaluation infrastructure for the
-              shopping multi-agent AI framework.
-            </p>
-
-            <p className="mt-5">
-              Growing up, I <a href="https://www.worldcubeassociation.org/persons/2016KHAR03" target="_blank" rel="noopener noreferrer" className="link">speedsolved Rubik’s cubes</a>. When I’m not pushing to git, you can find me{" "}
-              <button type="button" className="link hobby-link" onClick={cycleHobby}>
-                {hobbies[hobbyIndex]}
-              </button>
-              .
-            </p>
-
-            <p className="mt-5">
-              I’m constantly looking to <a href="https://github.com/rishiskhare/parrot" target="_blank" rel="noopener noreferrer" className="link">build something new</a>. Reach me anytime at <b>rishiskhare [at] gmail [dot] com.</b>
-            </p>
           </div>
 
-          <div className="flex flex-wrap gap-3 justify-center mt-8">
+          <div className="flex flex-wrap gap-5 justify-center mt-8">
             {[
               { href: "https://drive.google.com/file/d/1alYXNIwHRUtblUzGPGK3b8kSBHmdDIMx/view?usp=sharing", label: "resume" },
               { href: "https://www.linkedin.com/in/rishi-khare/", label: "linkedin" },
