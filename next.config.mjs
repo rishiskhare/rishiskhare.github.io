@@ -1,11 +1,8 @@
 /** @type {import('next').NextConfig} */
+const basePath = process.env.PAGES_BASE_PATH
+
 const nextConfig = {
-  eslint: {
-    ignoreDuringBuilds: true,
-  },
-  typescript: {
-    ignoreBuildErrors: true,
-  },
+  ...(basePath ? { basePath } : {}),
   images: {
     unoptimized: true,
   },
