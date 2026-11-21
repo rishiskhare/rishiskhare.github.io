@@ -80,7 +80,7 @@ export default function Home() {
             </ul>
 
             <p className="mt-5">
-              These days, I’m studying <b>computer science</b> at <b>Georgia Tech</b> as a master’s student, while also pursuing efficent ML research at the EIC Lab with Prof. Celine Lin. I recently graduated from <b>UC Berkeley</b>{" "}
+              These days, I’m studying <b>computer science</b> at <b>Georgia Tech</b> as a master’s student, while also pursuing efficient ML research at the EIC Lab with Prof. Celine Lin. I recently graduated from <b>UC Berkeley</b>{" "}
               with a bachelor’s degree in <b>computer science</b>.
             </p>
 
@@ -94,9 +94,9 @@ export default function Home() {
 
             <p className="mt-5">
               Growing up, I <a href="https://www.worldcubeassociation.org/persons/2016KHAR03" target="_blank" rel="noopener noreferrer" className="link">speedsolved Rubik’s cubes</a>. When I’m not pushing to git, you can find me{" "}
-              <a className="link hobby-link" onClick={cycleHobby}>
+              <button type="button" className="link hobby-link" onClick={cycleHobby}>
                 {hobbies[hobbyIndex]}
-              </a>
+              </button>
               .
             </p>
 

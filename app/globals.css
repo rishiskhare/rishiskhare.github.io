@@ -159,6 +159,10 @@ h1 {
 
 .hobby-link {
   color: #4d4d4d;
+  font: inherit;
+  background: none;
+  border: 0;
+  vertical-align: baseline;
 }
 
 .hobby-link:hover {
