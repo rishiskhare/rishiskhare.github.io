@@ -28,6 +28,10 @@ h1 {
   text-decoration: underline;
   text-decoration-thickness: 1px;
   text-underline-offset: 3px;
+  padding: 0 2px;
+  margin: 0 -2px;
+  -webkit-box-decoration-break: clone;
+  box-decoration-break: clone;
   cursor: pointer;
   border-radius: 2px;
 }
@@ -39,10 +43,6 @@ h1 {
   background-repeat: no-repeat;
   background-size: 100% 0.8em;
   background-position: left 0 bottom 0.1em;
-  padding: 0 2px;
-  margin: 0 -2px;
-  -webkit-box-decoration-break: clone;
-  box-decoration-break: clone;
 }
 
 @media (hover: hover) {
@@ -53,10 +53,6 @@ h1 {
     background-repeat: no-repeat;
     background-size: 100% 0.8em;
     background-position: left 0 bottom 0.1em;
-    padding: 0 2px;
-    margin: 0 -2px;
-    -webkit-box-decoration-break: clone;
-    box-decoration-break: clone;
   }
 }
 
