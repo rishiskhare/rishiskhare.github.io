@@ -4,7 +4,7 @@
 
 body {
   background-color: #fbf5ef;
-  font-family: var(--font-plex-mono), monospace;
+  font-family: var(--font-plex-sans), system-ui, sans-serif;
   color: rgba(0, 0, 0, 0.85);
   margin: 0;
   padding: 0;
@@ -63,7 +63,8 @@ h1 {
 
 .profile-link {
   display: inline-block;
-  padding: 2px 8px;
+  padding: 2px 6px;
+  font-family: var(--font-plex-mono), monospace;
   font-size: 13px;
   color: rgba(0, 0, 0, 0.85);
   text-decoration: none;
@@ -80,6 +81,10 @@ h1 {
   }
 }
 
+.mono {
+  font-family: var(--font-plex-mono), monospace;
+}
+
 .bio p,
 .bio li {
   text-wrap: pretty;
@@ -92,6 +97,67 @@ h1 {
 .greeting {
   color: #336ee2;
   -webkit-text-stroke: 1px #000;
+}
+
+.profile-header {
+  display: grid;
+  grid-template-columns: auto 1fr;
+  grid-template-areas:
+    "photo name"
+    "links links";
+  column-gap: 16px;
+  row-gap: 14px;
+  align-items: center;
+}
+
+.profile-header-photo {
+  grid-area: photo;
+  width: 80px;
+  height: 80px;
+}
+
+.profile-header-name {
+  grid-area: name;
+}
+
+.profile-header-links {
+  grid-area: links;
+}
+
+@media (min-width: 640px) {
+  .profile-header {
+    grid-template-columns: auto auto;
+    justify-content: start;
+    grid-template-areas:
+      "photo name"
+      "photo links";
+    column-gap: 24px;
+  }
+
+  .profile-header-photo {
+    width: 112px;
+    height: 112px;
+  }
+
+  .profile-header-name {
+    align-self: end;
+  }
+
+  .profile-header-links {
+    align-self: start;
+  }
+}
+
+@media (min-width: 768px) {
+  .profile-header-photo {
+    width: 140px;
+    height: 140px;
+  }
+}
+
+.profile-header-links .profile-link {
+  flex: 1 1 auto;
+  text-align: center;
 }
 
 .profile-image-container-circle {

@@ -69,32 +69,30 @@ export default function Home() {
   return (
     <div className="flex min-h-dvh items-center justify-center px-8 py-10">
       <div className="max-w-[40rem] w-full">
-        <h1 className="retro-heading greeting text-5xl">Hi, I’m Rishi!</h1>
+        <header className="profile-header">
+          <div className="profile-image-container-circle profile-header-photo">
+            <img src="/rishi-pic.webp" alt="Rishi Khare" className="profile-image" />
+          </div>
+          <h1 className="profile-header-name retro-heading greeting text-[40px] sm:text-5xl md:text-[56px]">Hi, I’m Rishi!</h1>
+          <nav aria-label="Profiles" className="profile-header-links flex flex-wrap gap-1.5">
+            {profileLinks.map((link) => (
+              <a key={link.label} href={link.href} target="_blank" rel="noopener noreferrer" className="profile-link">
+                {link.label}
+              </a>
+            ))}
+          </nav>
+        </header>
 
-        <div className="text-sm mt-8 space-y-10">
+        <div className="text-base mt-9 space-y-10">
           <div className="space-y-6">
-            <div className="bio flex flex-col-reverse items-center gap-6 md:flex-row md:gap-8">
-              <div className="w-full min-w-0 md:basis-[63%]">
-                <p>
-                  I’m a <b>researcher</b> and <b>engineer</b>. I build algorithms and systems that help foundation models accelerate scientific discovery, especially in system development and architecture design. I work on:
-                </p>
-                <ul className="list-disc pl-8 mt-3 space-y-2">
-                  <li>self-improving AI systems, especially for <span className="whitespace-nowrap">difficult-to-verify</span> domains</li>
-                  <li>efficient inference and training at scale</li>
-                </ul>
-                <p className="mt-4 flex flex-wrap gap-2">
-                  {profileLinks.map((link) => (
-                    <a key={link.label} href={link.href} target="_blank" rel="noopener noreferrer" className="profile-link">
-                      {link.label}
-                    </a>
-                  ))}
-                </p>
-              </div>
-              <div className="flex w-full justify-start md:w-auto md:basis-[37%]">
-                <div className="profile-image-container-circle w-[160px] h-[160px] md:w-full md:h-auto md:aspect-square">
-                  <img src="/rishi-pic.webp" alt="Rishi Khare" className="profile-image" />
-                </div>
-              </div>
+            <div className="bio">
+              <p>
+                I’m a <b>researcher</b> and <b>engineer</b>. I build algorithms and systems that help foundation models accelerate scientific discovery, especially in system development and architecture design. I work on:
+              </p>
+              <ul className="list-disc pl-8 mt-3 space-y-2">
+                <li>self-improving AI systems, especially for <span className="whitespace-nowrap">difficult-to-verify</span> domains</li>
+                <li>efficient inference and training at scale</li>
+              </ul>
             </div>
 
             <div className="bio space-y-4">
@@ -108,13 +106,13 @@ export default function Home() {
 
               <p>
                 Before that, I studied CS and data science at <b>UC Berkeley</b>, where I <span className="whitespace-nowrap">co-authored</span>{" "}
-                <a href="https://github.com/gepa-ai/gepa" target="_blank" rel="noopener noreferrer" className="link">GEPA</a>, an evolutionary algorithm that lets AI systems improve by reflecting on their own prior attempts at a task, without retraining model weights. I also spent a year at <b>T-Mobile Research</b>, where I <span className="whitespace-nowrap">fine-tuned</span> local models for telecommunications and filed three patents.
+                <a href="https://github.com/gepa-ai/gepa" target="_blank" rel="noopener noreferrer" className="link">GEPA</a>, an evolutionary algorithm that lets AI systems improve by reflecting on their own prior attempts at a task, without retraining model weights. I also spent a year at <b className="whitespace-nowrap">T-Mobile</b> <b>Research</b>, where I <span className="whitespace-nowrap">fine-tuned</span> local models for telecommunications and filed three patents.
               </p>
             </div>
           </div>
 
           <section aria-labelledby="papers-heading">
-            <h2 id="papers-heading" className="font-bold">selected papers</h2>
+            <h2 id="papers-heading" className="mono font-bold">selected papers</h2>
             <ul className="mt-3 space-y-4">
               {papers.map((paper) => (
                 <li key={paper.href} className="grid grid-cols-1 sm:grid-cols-[176px_1fr] gap-3 sm:gap-4 sm:items-center">
@@ -123,7 +121,7 @@ export default function Home() {
                     <a href={paper.href} target="_blank" rel="noopener noreferrer" className="link">
                       {paper.title}
                     </a>
-                    <div>{paper.venue}</div>
+                    <div className="mono text-sm">{paper.venue}</div>
                   </div>
                 </li>
               ))}
@@ -145,7 +143,7 @@ export default function Home() {
             </p>
 
             <p>
-              Reach me anytime at <b>rishiskhare [at] gmail [dot] com</b>.
+              Reach me anytime at <b className="mono">rishiskhare [at] gmail [dot] com</b>.
             </p>
           </div>
         </div>
