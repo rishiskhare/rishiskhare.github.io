@@ -5,11 +5,9 @@
   "scripts": {
     "dev": "next dev",
     "build": "next build",
-    "start": "next start",
     "lint": "eslint ."
   },
   "dependencies": {
-    "autoprefixer": "^10.4.20",
     "next": "16.4.6",
     "react": "19.3.1",
     "react-dom": "19.3.1"
