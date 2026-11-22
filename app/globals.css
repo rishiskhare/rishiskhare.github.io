@@ -17,7 +17,6 @@ body {
 }
 
 h1 {
-  font-family: var(--font-plex-mono), serif;
   line-height: 1.1;
   letter-spacing: 2px;
   font-weight: normal;

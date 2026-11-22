@@ -73,7 +73,7 @@ export default function Home() {
           <div className="profile-image-container-circle profile-header-photo">
             <img src="/rishi-pic.webp" alt="Rishi Khare" className="profile-image" />
           </div>
-          <h1 className="profile-header-name retro-heading greeting text-[40px] sm:text-5xl md:text-[56px]">Hi, I’m Rishi!</h1>
+          <h1 className="profile-header-name retro-heading greeting text-[40px] sm:text-[48px] md:text-[56px]">Hi, I’m Rishi!</h1>
           <nav aria-label="Profiles" className="profile-header-links flex flex-wrap gap-1.5">
             {profileLinks.map((link) => (
               <a key={link.label} href={link.href} target="_blank" rel="noopener noreferrer" className="profile-link">
