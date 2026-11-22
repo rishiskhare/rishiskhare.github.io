@@ -1,6 +1,6 @@
 "use client"
 
-import { Fragment, useState, useSyncExternalStore } from "react"
+import { useState, useSyncExternalStore } from "react"
 
 const hobbies = [
   "reading & listening to audiobooks",
@@ -16,7 +16,6 @@ const profileLinks = [
   { href: "https://www.linkedin.com/in/rishi-khare/", label: "linkedin" },
   { href: "https://github.com/rishiskhare", label: "github" },
   { href: "https://x.com/rishiskhare", label: "x" },
-  { href: "https://www.instagram.com/rishiskhare/", label: "instagram" },
   { href: "https://scholar.google.com/citations?user=1SFrDE4AAAAJ", label: "scholar" },
 ]
 
@@ -30,7 +29,7 @@ const papers = [
   {
     title: "Think Before You Speak: Enabling Training-Free Latent Communication Between Language Models",
     href: "https://arxiv.org/abs/2610.16165",
-    venue: "COLM 2026 Workshop on Efficient Reasoning · solo author",
+    venue: "COLM 2026 Workshop on Efficient Reasoning",
     image: "/papers/cachefuse.webp",
   },
   {
@@ -40,25 +39,6 @@ const papers = [
     image: "/papers/agentsuite.webp",
   },
 ]
-
-const greeting = "Hi, I’m Rishi!"
-
-// One color per character position, blue to red, matching the old CSS.
-const greetingColors = ["#336ee2", "#4e64d6", "#695aca", "#8450be", "#9f46b2", "#ba3ca6", "#c83a92", "#d5387e", "#e2366a", "#ee3456", "#f63342", "#ff0000", "#ff0000", "#ff0000"]
-
-const greetingWords = greeting.split(" ").map((word, w, words) => {
-  const start = words.slice(0, w).join(" ").length + (w > 0 ? 1 : 0)
-  return [...word].map((char, c) => {
-    const index = start + c
-    return {
-      char,
-      index,
-      color: greetingColors[Math.min(index, greetingColors.length - 1)],
-      // Stagger each letter's bounce by 0.1s; negative delays start the wave mid-motion on load.
-      delay: `${(index - 20) / 10}s`,
-    }
-  })
-})
 
 let clientHobbyIndex: number | null = null
 
@@ -89,20 +69,7 @@ export default function Home() {
   return (
     <div className="flex min-h-dvh items-center justify-center px-8 py-10">
       <div className="max-w-[40rem] w-full">
-        <h1 className="text-center retro-heading text-5xl" aria-label={greeting}>
-          {greetingWords.map((letters, w) => (
-            <Fragment key={w}>
-              {w > 0 && " "}
-              <span className="wave-word" aria-hidden="true">
-                {letters.map(({ char, index, color, delay }) => (
-                  <span key={index} className="wave-letter" style={{ color, animationDelay: delay }}>
-                    {char}
-                  </span>
-                ))}
-              </span>
-            </Fragment>
-          ))}
-        </h1>
+        <h1 className="retro-heading greeting text-5xl">Hi, I’m Rishi!</h1>
 
         <div className="text-sm mt-8 space-y-10">
           <div className="space-y-6">
@@ -115,21 +82,15 @@ export default function Home() {
                   <li>self-improving AI systems, especially for <span className="whitespace-nowrap">difficult-to-verify</span> domains</li>
                   <li>efficient inference and training at scale</li>
                 </ul>
-                <p className="mt-4">
-                  {profileLinks.map((link, index) => (
-                    <Fragment key={link.label}>
-                      {/* Keep each link with its trailing slash so wrapped lines never start with "/". */}
-                      <span className="whitespace-nowrap">
-                        <a href={link.href} target="_blank" rel="noopener noreferrer" className="link">
-                          {link.label}
-                        </a>
-                        {index < profileLinks.length - 1 && " /"}
-                      </span>{" "}
-                    </Fragment>
+                <p className="mt-4 flex flex-wrap gap-2">
+                  {profileLinks.map((link) => (
+                    <a key={link.label} href={link.href} target="_blank" rel="noopener noreferrer" className="profile-link">
+                      {link.label}
+                    </a>
                   ))}
                 </p>
               </div>
-              <div className="flex justify-center md:basis-[37%]">
+              <div className="flex w-full justify-start md:w-auto md:basis-[37%]">
                 <div className="profile-image-container-circle w-[160px] h-[160px] md:w-full md:h-auto md:aspect-square">
                   <img src="/rishi-pic.webp" alt="Rishi Khare" className="profile-image" />
                 </div>
@@ -162,7 +123,7 @@ export default function Home() {
                     <a href={paper.href} target="_blank" rel="noopener noreferrer" className="link">
                       {paper.title}
                     </a>
-                    <div className="text-[#4d4d4d]">{paper.venue}</div>
+                    <div>{paper.venue}</div>
                   </div>
                 </li>
               ))}
