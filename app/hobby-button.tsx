@@ -1,6 +1,6 @@
 "use client"
 
-import { useState, useSyncExternalStore } from "react"
+import { useState } from "react"
 
 const hobbies = [
   "reading & listening to audiobooks",
@@ -11,34 +11,20 @@ const hobbies = [
   "thinking about pushing to git",
 ]
 
-let clientHobbyIndex: number | null = null
-
-function subscribeToHobbyIndex() {
-  return () => {}
-}
-
-function getClientHobbyIndex() {
-  if (clientHobbyIndex === null) {
-    clientHobbyIndex = Math.floor(Math.random() * hobbies.length)
-  }
-  return clientHobbyIndex
-}
-
 export default function HobbyButton() {
-  const randomHobbyIndex = useSyncExternalStore(subscribeToHobbyIndex, getClientHobbyIndex, () => 0)
-  const [chosenHobbyIndex, setChosenHobbyIndex] = useState<number | null>(null)
-  const hobbyIndex = chosenHobbyIndex ?? randomHobbyIndex
-
-  function cycleHobby() {
-    setChosenHobbyIndex((hobbyIndex + 1) % hobbies.length)
-  }
+  const [hobbyIndex, setHobbyIndex] = useState(0)
 
   return (
     <>
-      <button type="button" className="link hobby-link" onClick={cycleHobby} aria-describedby="hobby-hint">
+      <button
+        type="button"
+        className="link hobby-link"
+        onClick={() => setHobbyIndex((index) => (index + 1) % hobbies.length)}
+        aria-describedby="hobby-hint"
+      >
         {hobbies[hobbyIndex]}
       </button>
-      <span id="hobby-hint" className="sr-only">shows another hobby</span>
+      <span id="hobby-hint" className="visually-hidden">shows another hobby</span>
     </>
   )
 }

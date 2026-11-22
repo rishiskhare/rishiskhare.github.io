@@ -5,12 +5,16 @@ import gepaFigure from "./images/papers/gepa.webp"
 import cachefuseFigure from "./images/papers/cachefuse.webp"
 import agentsuiteFigure from "./images/papers/agentsuite.webp"
 
+const scholarUrl = "https://scholar.google.com/citations?user=1SFrDE4AAAAJ"
+const githubUrl = "https://github.com/rishiskhare"
+
 const profileLinks = [
+  { href: "mailto:rishiskhare@gmail.com", label: "email" },
   { href: "https://drive.google.com/file/d/1alYXNIwHRUtblUzGPGK3b8kSBHmdDIMx/view?usp=sharing", label: "resume" },
   { href: "https://www.linkedin.com/in/rishi-khare/", label: "linkedin" },
-  { href: "https://github.com/rishiskhare", label: "github" },
+  { href: githubUrl, label: "github" },
   { href: "https://x.com/rishiskhare", label: "x" },
-  { href: "https://scholar.google.com/citations?user=1SFrDE4AAAAJ", label: "scholar" },
+  { href: scholarUrl, label: "scholar" },
 ]
 
 const papers = [
@@ -36,47 +40,44 @@ const papers = [
 
 export default function Home() {
   return (
-    <div className="flex min-h-dvh items-center justify-center px-8 py-10">
-      <div className="page max-w-[36rem] w-full">
+    <div className="shell">
+      <div className="page">
         <header className="profile-header">
-          <div className="profile-image-container-circle profile-header-photo">
-            <Image src={profilePhoto} alt="Rishi Khare" loading="eager" fetchPriority="high" className="profile-image" />
-          </div>
-          <h1 className="profile-header-name retro-heading greeting">Hi, I’m Rishi!</h1>
-          <nav aria-label="Profiles" className="profile-header-links">
-            <a href="mailto:rishiskhare@gmail.com" className="profile-link">email</a>
+          <Image src={profilePhoto} alt="Rishi Khare" loading="eager" fetchPriority="high" className="profile-photo" />
+          <h1 className="profile-name">Hi, I’m Rishi!</h1>
+          <nav aria-label="Profiles" className="profile-links">
             {profileLinks.map((link) => (
-              <a key={link.label} href={link.href} target="_blank" rel="noopener noreferrer" className="profile-link">
+              <a key={link.label} href={link.href} className="profile-link">
                 {link.label}
               </a>
             ))}
           </nav>
         </header>
 
-        <main className="text-base mt-9 space-y-10">
-          <div className="space-y-6">
+        <main>
+          <div className="intro">
             <div className="bio">
               <p>
-                I’m a <a href="https://scholar.google.com/citations?user=1SFrDE4AAAAJ" target="_blank" rel="noopener noreferrer" className="link">researcher</a> and <a href="https://github.com/rishiskhare" target="_blank" rel="noopener noreferrer" className="link">engineer</a>. I enjoy creating algorithms and systems for foundation models to accelerate scientific discovery, particularly in system development and architecture design. I work on:
+                I’m a <a href={scholarUrl} className="link">researcher</a> and <a href={githubUrl} className="link">engineer</a>. I enjoy creating algorithms and systems for foundation models to accelerate scientific discovery, particularly in system development and architecture design. I work on:
               </p>
-              <ul className="list-disc pl-8 mt-3 space-y-2">
-                <li>self-improving AI systems, especially for <span className="whitespace-nowrap">difficult-to-verify</span> domains</li>
+              <ul>
+                <li>self-improving AI systems, especially for <span className="nowrap">difficult-to-verify</span> domains</li>
                 <li>efficient inference and training at scale</li>
               </ul>
             </div>
 
-            <div className="bio space-y-4">
+            <div className="bio">
               <p>
                 These days, I’m completing my master’s in computer science at <b>Georgia Tech</b> with Prof. Zishen Wan and interning at <b>NVIDIA</b>, building self-improving coding agents that triage GPU driver bugs.
               </p>
 
               <p>
-                Before that, I studied computer science at <b>UC Berkeley</b>, where I <span className="whitespace-nowrap">co-authored</span>{" "}
-                <a href="https://github.com/gepa-ai/gepa" target="_blank" rel="noopener noreferrer" className="link">GEPA</a>, an evolutionary algorithm that lets AI systems improve by reflecting on their own prior attempts at a task, without retraining model weights. I also spent a year at <b className="whitespace-nowrap">T-Mobile</b> <b>Research</b>, where I <span className="whitespace-nowrap">fine-tuned</span> local models for telecommunications and filed three patents.
+                Before that, I studied computer science at <b>UC Berkeley</b>, where I <span className="nowrap">co-authored</span>{" "}
+                <a href="https://github.com/gepa-ai/gepa" className="link">GEPA</a>, an evolutionary algorithm that lets AI systems improve by reflecting on their own prior attempts at a task, without retraining model weights. I also spent a year at <b className="nowrap">T-Mobile</b> <b>Research</b>, where I <span className="nowrap">fine-tuned</span> local models for telecommunications and filed three patents.
               </p>
 
               <p>
-                Growing up, I <a href="https://www.worldcubeassociation.org/persons/2016KHAR03" target="_blank" rel="noopener noreferrer" className="link">speedsolved Rubik’s cubes</a>. When I’m not pushing to git, you can find me{" "}
+                Growing up, I <a href="https://www.worldcubeassociation.org/persons/2016KHAR03" className="link">speedsolved Rubik’s cubes</a>. When I’m not pushing to git, you can find me{" "}
                 <HobbyButton />
                 .
               </p>
@@ -84,22 +85,22 @@ export default function Home() {
           </div>
 
           <section>
-            <h2 className="mono font-bold">selected papers</h2>
-            <ul className="mt-3 space-y-4">
+            <h2 className="section-title">selected papers</h2>
+            <ul className="papers" role="list">
               {papers.map((paper) => (
-                <li key={paper.href} className="grid grid-cols-1 sm:grid-cols-[176px_1fr] gap-3 sm:gap-4 sm:items-center">
-                  <Image src={paper.image} alt="" className="paper-thumb max-w-[200px]" />
+                <li key={paper.href} className="paper">
+                  <Image src={paper.image} alt="" className="paper-thumb" />
                   <div>
-                    <a href={paper.href} target="_blank" rel="noopener noreferrer" className="link">
+                    <a href={paper.href} className="link">
                       {paper.title}
                     </a>
-                    <div className="mono text-sm">{paper.venue}</div>
+                    <div className="venue">{paper.venue}</div>
                   </div>
                 </li>
               ))}
             </ul>
-            <p className="mt-3">
-              <a href="https://scholar.google.com/citations?user=1SFrDE4AAAAJ" target="_blank" rel="noopener noreferrer" className="link">
+            <p className="more">
+              <a href={scholarUrl} className="link">
                 all papers on Google Scholar <span aria-hidden="true">→</span>
               </a>
             </p>

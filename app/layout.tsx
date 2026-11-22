@@ -29,6 +29,7 @@ export const metadata: Metadata = {
   metadataBase: new URL("https://www.rishiskhare.com"),
   title: "Rishi Khare",
   description,
+  alternates: { canonical: "/" },
   openGraph: {
     title: "Rishi Khare",
     description,
