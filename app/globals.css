@@ -181,6 +181,7 @@ h1 {
 }
 
 .hobby-link {
+  text-decoration-style: dotted;
   font: inherit;
   background-color: transparent;
   border: 0;

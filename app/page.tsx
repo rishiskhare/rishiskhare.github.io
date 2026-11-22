@@ -56,7 +56,7 @@ export default function Home() {
           <div className="space-y-6">
             <div className="bio">
               <p>
-                I’m a <b>researcher</b> and <b>engineer</b>. I build algorithms and systems that help foundation models accelerate scientific discovery, especially in system development and architecture design. I work on:
+                I’m a <a href="https://scholar.google.com/citations?user=1SFrDE4AAAAJ" target="_blank" rel="noopener noreferrer" className="link">researcher</a> and <a href="https://github.com/rishiskhare" target="_blank" rel="noopener noreferrer" className="link">engineer</a>. I build algorithms and systems that help foundation models accelerate scientific discovery, especially in system development and architecture design. I work on:
               </p>
               <ul className="list-disc pl-8 mt-3 space-y-2">
                 <li>self-improving AI systems, especially for <span className="whitespace-nowrap">difficult-to-verify</span> domains</li>
