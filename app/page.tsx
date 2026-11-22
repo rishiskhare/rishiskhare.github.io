@@ -37,13 +37,13 @@ const papers = [
 export default function Home() {
   return (
     <div className="flex min-h-dvh items-center justify-center px-8 py-10">
-      <div className="max-w-[40rem] w-full">
+      <div className="page max-w-[36rem] w-full">
         <header className="profile-header">
           <div className="profile-image-container-circle profile-header-photo">
             <Image src={profilePhoto} alt="Rishi Khare" loading="eager" fetchPriority="high" className="profile-image" />
           </div>
-          <h1 className="profile-header-name retro-heading greeting text-[40px] sm:text-[48px] md:text-[56px]">Hi, I’m Rishi!</h1>
-          <nav aria-label="Profiles" className="profile-header-links grid grid-cols-3 gap-1.5 sm:flex sm:flex-wrap">
+          <h1 className="profile-header-name retro-heading greeting">Hi, I’m Rishi!</h1>
+          <nav aria-label="Profiles" className="profile-header-links">
             <a href="mailto:rishiskhare@gmail.com" className="profile-link">email</a>
             {profileLinks.map((link) => (
               <a key={link.label} href={link.href} target="_blank" rel="noopener noreferrer" className="profile-link">
@@ -57,7 +57,7 @@ export default function Home() {
           <div className="space-y-6">
             <div className="bio">
               <p>
-                I’m a <a href="https://scholar.google.com/citations?user=1SFrDE4AAAAJ" target="_blank" rel="noopener noreferrer" className="link">researcher</a> and <a href="https://github.com/rishiskhare" target="_blank" rel="noopener noreferrer" className="link">engineer</a>. I enjoy creating algorithms and systems that help foundation models accelerate scientific discovery, particularly in system development and architecture design. I work on:
+                I’m a <a href="https://scholar.google.com/citations?user=1SFrDE4AAAAJ" target="_blank" rel="noopener noreferrer" className="link">researcher</a> and <a href="https://github.com/rishiskhare" target="_blank" rel="noopener noreferrer" className="link">engineer</a>. I enjoy creating algorithms and systems for foundation models to accelerate scientific discovery, particularly in system development and architecture design. I work on:
               </p>
               <ul className="list-disc pl-8 mt-3 space-y-2">
                 <li>self-improving AI systems, especially for <span className="whitespace-nowrap">difficult-to-verify</span> domains</li>
