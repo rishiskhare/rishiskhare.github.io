@@ -1,15 +1,9 @@
-"use client"
-
-import { useState, useSyncExternalStore } from "react"
-
-const hobbies = [
-  "reading & listening to audiobooks",
-  "exploring museums in SF",
-  "drinking sparkling water",
-  "practicing badminton trickshots",
-  "discovering hiking trails",
-  "thinking about pushing to git",
-]
+import Image from "next/image"
+import HobbyButton from "./hobby-button"
+import profilePhoto from "./images/rishi-pic.webp"
+import gepaFigure from "./images/papers/gepa.webp"
+import cachefuseFigure from "./images/papers/cachefuse.webp"
+import agentsuiteFigure from "./images/papers/agentsuite.webp"
 
 const profileLinks = [
   { href: "https://drive.google.com/file/d/1alYXNIwHRUtblUzGPGK3b8kSBHmdDIMx/view?usp=sharing", label: "resume" },
@@ -24,54 +18,29 @@ const papers = [
     title: "GEPA: Reflective Prompt Evolution Can Outperform Reinforcement Learning",
     href: "https://arxiv.org/abs/2507.19457",
     venue: "ICLR 2026 (Oral)",
-    image: "/papers/gepa.webp",
+    image: gepaFigure,
   },
   {
     title: "Think Before You Speak: Enabling Training-Free Latent Communication Between Language Models",
     href: "https://arxiv.org/abs/2610.16165",
     venue: "COLM 2026 Workshop on Efficient Reasoning",
-    image: "/papers/cachefuse.webp",
+    image: cachefuseFigure,
   },
   {
     title: "AgentSuite: Toward More Reliable Agent Evaluation with a Component-Based Benchmark Auditing Pipeline",
     href: "https://proceedings.mlr.press/v306/suh26a.html",
     venue: "ICML 2026",
-    image: "/papers/agentsuite.webp",
+    image: agentsuiteFigure,
   },
 ]
 
-let clientHobbyIndex: number | null = null
-
-function subscribeToHobbyIndex() {
-  return () => {}
-}
-
-function getClientHobbyIndex() {
-  if (clientHobbyIndex === null) {
-    clientHobbyIndex = Math.floor(Math.random() * hobbies.length)
-  }
-  return clientHobbyIndex
-}
-
 export default function Home() {
-  const randomHobbyIndex = useSyncExternalStore(
-    subscribeToHobbyIndex,
-    getClientHobbyIndex,
-    () => 0,
-  )
-  const [chosenHobbyIndex, setChosenHobbyIndex] = useState<number | null>(null)
-  const hobbyIndex = chosenHobbyIndex ?? randomHobbyIndex
-
-  function cycleHobby() {
-    setChosenHobbyIndex((hobbyIndex + 1) % hobbies.length)
-  }
-
   return (
     <div className="flex min-h-dvh items-center justify-center px-8 py-10">
       <div className="max-w-[40rem] w-full">
         <header className="profile-header">
           <div className="profile-image-container-circle profile-header-photo">
-            <img src="/rishi-pic.webp" alt="Rishi Khare" className="profile-image" />
+            <Image src={profilePhoto} alt="Rishi Khare" loading="eager" fetchPriority="high" className="profile-image" />
           </div>
           <h1 className="profile-header-name retro-heading greeting text-[40px] sm:text-[48px] md:text-[56px]">Hi, I’m Rishi!</h1>
           <nav aria-label="Profiles" className="profile-header-links flex flex-wrap gap-1.5">
@@ -116,7 +85,7 @@ export default function Home() {
             <ul className="mt-3 space-y-4">
               {papers.map((paper) => (
                 <li key={paper.href} className="grid grid-cols-1 sm:grid-cols-[176px_1fr] gap-3 sm:gap-4 sm:items-center">
-                  <img src={paper.image} alt="" width={176} height={110} loading="lazy" className="paper-thumb max-w-[200px]" />
+                  <Image src={paper.image} alt="" className="paper-thumb max-w-[200px]" />
                   <div>
                     <a href={paper.href} target="_blank" rel="noopener noreferrer" className="link">
                       {paper.title}
@@ -136,10 +105,7 @@ export default function Home() {
           <div className="bio space-y-4">
             <p>
               Growing up, I <a href="https://www.worldcubeassociation.org/persons/2016KHAR03" target="_blank" rel="noopener noreferrer" className="link">speedsolved Rubik’s cubes</a>. When I’m not pushing to git, you can find me{" "}
-              <button type="button" className="link hobby-link" onClick={cycleHobby} aria-describedby="hobby-hint">
-                {hobbies[hobbyIndex]}
-              </button>
-              <span id="hobby-hint" className="sr-only">shows another hobby</span>
+              <HobbyButton />
               .
             </p>
 
