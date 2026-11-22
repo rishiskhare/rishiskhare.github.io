@@ -1,5 +1,5 @@
 import type { Metadata } from "next"
-import { IBM_Plex_Mono } from "next/font/google"
+import { IBM_Plex_Mono, IBM_Plex_Sans } from "next/font/google"
 import localFont from "next/font/local"
 import "./globals.css"
 
@@ -8,6 +8,12 @@ const plexMono = IBM_Plex_Mono({
   weight: ["400", "700"],
   display: "swap",
   variable: "--font-plex-mono",
+})
+
+const plexSans = IBM_Plex_Sans({
+  subsets: ["latin"],
+  display: "swap",
+  variable: "--font-plex-sans",
 })
 
 const tiempos = localFont({
@@ -28,7 +34,7 @@ export default function RootLayout({
   children: React.ReactNode
 }) {
   return (
-    <html lang="en" className={`${plexMono.variable} ${tiempos.variable}`}>
+    <html lang="en" className={`${plexSans.variable} ${plexMono.variable} ${tiempos.variable}`}>
       <body>{children}</body>
     </html>
   )
