@@ -83,7 +83,7 @@ export default function Home() {
           </nav>
         </header>
 
-        <div className="text-base mt-9 space-y-10">
+        <main className="text-base mt-9 space-y-10">
           <div className="space-y-6">
             <div className="bio">
               <p>
@@ -111,8 +111,8 @@ export default function Home() {
             </div>
           </div>
 
-          <section aria-labelledby="papers-heading">
-            <h2 id="papers-heading" className="mono font-bold">selected papers</h2>
+          <section>
+            <h2 className="mono font-bold">selected papers</h2>
             <ul className="mt-3 space-y-4">
               {papers.map((paper) => (
                 <li key={paper.href} className="grid grid-cols-1 sm:grid-cols-[176px_1fr] gap-3 sm:gap-4 sm:items-center">
@@ -128,7 +128,7 @@ export default function Home() {
             </ul>
             <p className="mt-3">
               <a href="https://scholar.google.com/citations?user=1SFrDE4AAAAJ" target="_blank" rel="noopener noreferrer" className="link">
-                all papers on Google Scholar →
+                all papers on Google Scholar <span aria-hidden="true">→</span>
               </a>
             </p>
           </section>
@@ -136,9 +136,10 @@ export default function Home() {
           <div className="bio space-y-4">
             <p>
               Growing up, I <a href="https://www.worldcubeassociation.org/persons/2016KHAR03" target="_blank" rel="noopener noreferrer" className="link">speedsolved Rubik’s cubes</a>. When I’m not pushing to git, you can find me{" "}
-              <button type="button" className="link hobby-link" onClick={cycleHobby}>
+              <button type="button" className="link hobby-link" onClick={cycleHobby} aria-describedby="hobby-hint">
                 {hobbies[hobbyIndex]}
               </button>
+              <span id="hobby-hint" className="sr-only">shows another hobby</span>
               .
             </p>
 
@@ -146,7 +147,7 @@ export default function Home() {
               Reach me anytime at <b className="mono">rishiskhare [at] gmail [dot] com</b>.
             </p>
           </div>
-        </div>
+        </main>
       </div>
     </div>
   )

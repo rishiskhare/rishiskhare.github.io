@@ -1,4 +1,4 @@
-import type { Metadata } from "next"
+import type { Metadata, Viewport } from "next"
 import { IBM_Plex_Mono, IBM_Plex_Sans } from "next/font/google"
 import localFont from "next/font/local"
 import "./globals.css"
@@ -26,6 +26,11 @@ const tiempos = localFont({
 export const metadata: Metadata = {
   title: "Rishi Khare",
   description: "Personal website for Rishi Khare",
+}
+
+export const viewport: Viewport = {
+  themeColor: "#fbf5ef",
+  colorScheme: "light",
 }
 
 export default function RootLayout({
