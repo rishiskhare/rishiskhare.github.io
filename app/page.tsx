@@ -43,7 +43,8 @@ export default function Home() {
             <Image src={profilePhoto} alt="Rishi Khare" loading="eager" fetchPriority="high" className="profile-image" />
           </div>
           <h1 className="profile-header-name retro-heading greeting text-[40px] sm:text-[48px] md:text-[56px]">Hi, I’m Rishi!</h1>
-          <nav aria-label="Profiles" className="profile-header-links flex flex-wrap gap-1.5">
+          <nav aria-label="Profiles" className="profile-header-links grid grid-cols-3 gap-1.5 sm:flex sm:flex-wrap">
+            <a href="mailto:rishiskhare@gmail.com" className="profile-link">email</a>
             {profileLinks.map((link) => (
               <a key={link.label} href={link.href} target="_blank" rel="noopener noreferrer" className="profile-link">
                 {link.label}
@@ -73,6 +74,12 @@ export default function Home() {
                 Before that, I studied computer science at <b>UC Berkeley</b>, where I <span className="whitespace-nowrap">co-authored</span>{" "}
                 <a href="https://github.com/gepa-ai/gepa" target="_blank" rel="noopener noreferrer" className="link">GEPA</a>, an evolutionary algorithm that lets AI systems improve by reflecting on their own prior attempts at a task, without retraining model weights. I also spent a year at <b className="whitespace-nowrap">T-Mobile</b> <b>Research</b>, where I <span className="whitespace-nowrap">fine-tuned</span> local models for telecommunications and filed three patents.
               </p>
+
+              <p>
+                Growing up, I <a href="https://www.worldcubeassociation.org/persons/2016KHAR03" target="_blank" rel="noopener noreferrer" className="link">speedsolved Rubik’s cubes</a>. When I’m not pushing to git, you can find me{" "}
+                <HobbyButton />
+                .
+              </p>
             </div>
           </div>
 
@@ -97,18 +104,6 @@ export default function Home() {
               </a>
             </p>
           </section>
-
-          <div className="bio space-y-4">
-            <p>
-              Growing up, I <a href="https://www.worldcubeassociation.org/persons/2016KHAR03" target="_blank" rel="noopener noreferrer" className="link">speedsolved Rubik’s cubes</a>. When I’m not pushing to git, you can find me{" "}
-              <HobbyButton />
-              .
-            </p>
-
-            <p>
-              Reach me anytime at <b className="mono">rishiskhare [at] gmail [dot] com</b>.
-            </p>
-          </div>
         </main>
       </div>
     </div>
