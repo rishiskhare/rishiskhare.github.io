@@ -56,7 +56,7 @@ export default function Home() {
           <div className="space-y-6">
             <div className="bio">
               <p>
-                I’m a <a href="https://scholar.google.com/citations?user=1SFrDE4AAAAJ" target="_blank" rel="noopener noreferrer" className="link">researcher</a> and <a href="https://github.com/rishiskhare" target="_blank" rel="noopener noreferrer" className="link">engineer</a>. I build algorithms and systems that help foundation models accelerate scientific discovery, especially in system development and architecture design. I work on:
+                I’m a <a href="https://scholar.google.com/citations?user=1SFrDE4AAAAJ" target="_blank" rel="noopener noreferrer" className="link">researcher</a> and <a href="https://github.com/rishiskhare" target="_blank" rel="noopener noreferrer" className="link">engineer</a>. I enjoy creating algorithms and systems that help foundation models accelerate scientific discovery, particularly in system development and architecture design. I work on:
               </p>
               <ul className="list-disc pl-8 mt-3 space-y-2">
                 <li>self-improving AI systems, especially for <span className="whitespace-nowrap">difficult-to-verify</span> domains</li>
@@ -66,15 +66,11 @@ export default function Home() {
 
             <div className="bio space-y-4">
               <p>
-                I envision a future with <span className="whitespace-nowrap">on-device</span> intelligence that augments human craftsmanship, rather than replacing it.
+                These days, I’m completing my master’s in computer science at <b>Georgia Tech</b> with Prof. Zishen Wan and interning at <b>NVIDIA</b>, building self-improving coding agents that triage GPU driver bugs.
               </p>
 
               <p>
-                Right now, I’m finishing my CS master’s at <b>Georgia Tech</b> with Prof. Zishen Wan and interning at <b>NVIDIA</b>, building self-improving agents that triage GPU driver bugs.
-              </p>
-
-              <p>
-                Before that, I studied CS and data science at <b>UC Berkeley</b>, where I <span className="whitespace-nowrap">co-authored</span>{" "}
+                Before that, I studied computer science at <b>UC Berkeley</b>, where I <span className="whitespace-nowrap">co-authored</span>{" "}
                 <a href="https://github.com/gepa-ai/gepa" target="_blank" rel="noopener noreferrer" className="link">GEPA</a>, an evolutionary algorithm that lets AI systems improve by reflecting on their own prior attempts at a task, without retraining model weights. I also spent a year at <b className="whitespace-nowrap">T-Mobile</b> <b>Research</b>, where I <span className="whitespace-nowrap">fine-tuned</span> local models for telecommunications and filed three patents.
               </p>
             </div>
