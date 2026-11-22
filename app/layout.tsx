@@ -26,7 +26,7 @@ const tiempos = localFont({
 const description = "Rishi Khare is a researcher and engineer building self-improving AI systems and efficient inference."
 
 export const metadata: Metadata = {
-  metadataBase: new URL("https://rishiskhare.github.io"),
+  metadataBase: new URL("https://www.rishiskhare.com"),
   title: "Rishi Khare",
   description,
   openGraph: {
@@ -36,11 +36,7 @@ export const metadata: Metadata = {
     siteName: "Rishi Khare",
     type: "profile",
   },
-  twitter: {
-    card: "summary",
-    title: "Rishi Khare",
-    description,
-  },
+  twitter: { card: "summary" },
 }
 
 export const viewport: Viewport = {
