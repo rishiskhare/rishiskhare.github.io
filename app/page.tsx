@@ -1,4 +1,5 @@
 import Image from "next/image"
+import { Fragment } from "react"
 import HobbyButton from "./hobby-button"
 import profilePhoto from "./images/rishi-pic.webp"
 import gepaFigure from "./images/papers/gepa.webp"
@@ -47,9 +48,11 @@ export default function Home() {
           <h1 className="profile-name">Hi, I’m Rishi!</h1>
           <nav aria-label="Profiles" className="profile-links">
             {profileLinks.map((link) => (
-              <a key={link.label} href={link.href} className="profile-link">
-                {link.label}
-              </a>
+              <Fragment key={link.label}>
+                <a href={link.href} className="link profile-link">
+                  {link.label}
+                </a>{" "}
+              </Fragment>
             ))}
           </nav>
         </header>

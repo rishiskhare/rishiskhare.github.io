@@ -2,7 +2,6 @@
   --bg: #fbf5ef;
   --text: rgba(0, 0, 0, 0.85);
   --ink: #1f1a17;
-  --paper: #fffdfa;
   --blue: #2a5fc7;
   --blue-dark: #1b3f8f;
   --highlight: color-mix(in srgb, var(--blue) 25%, transparent);
@@ -11,8 +10,7 @@
 }
 
 img,
-.shell,
-.profile-link {
+.shell {
   box-sizing: border-box;
 }
 
@@ -34,16 +32,16 @@ body {
   background-color: var(--bg);
   color: var(--text);
   font-family: var(--font-plex-sans), system-ui, sans-serif;
-  line-height: 1.6;
+  line-height: 1.5;
 }
 
-:where(a, button):focus-visible {
+:where(a, button, [role="button"]):focus-visible {
   outline: 2px solid var(--ink);
   outline-offset: 3px;
 }
 
 /* Hides content visually but keeps it in the accessibility tree.
-   :focus-within / :active opt elements out — useful for skip links and
+   :focus-within / :active opt elements out, which is useful for skip links and
    any focusable content wrapped in this class. */
 .visually-hidden:where(:not(:focus-within, :active)) {
   position: absolute !important;
@@ -69,6 +67,7 @@ body {
   text-underline-offset: 3px;
   padding: 0 2px;
   margin: 0 -2px;
+  -webkit-box-decoration-break: clone;
   box-decoration-break: clone;
   background: linear-gradient(var(--highlight), var(--highlight)) left 0 bottom 0.1em / 100% 0 no-repeat;
 }
@@ -88,9 +87,7 @@ body {
 }
 
 .hobby-link {
-  font: inherit;
   text-decoration-style: dotted;
-  border: 0;
   cursor: pointer;
 }
 
@@ -115,17 +112,17 @@ body {
   grid-template-areas:
     "photo name"
     "links links";
-  column-gap: 1rem;
+  column-gap: clamp(1rem, 4cqi, 1.5rem);
   row-gap: 0.875rem;
   align-items: center;
 }
 
 .profile-photo {
   grid-area: photo;
-  inline-size: 5rem;
-  block-size: 5rem;
+  /* Scales linearly from 5rem on a 20rem-wide page to 7.5rem at 36rem (the max). */
+  inline-size: clamp(5rem, 1.875rem + 15.625cqi, 7.5rem);
+  aspect-ratio: 1;
   object-fit: cover;
-  background-color: var(--paper);
   border: 1.5px solid var(--ink);
   border-radius: 50%;
 }
@@ -133,7 +130,8 @@ body {
 .profile-name {
   grid-area: name;
   font-family: var(--font-tiempos), serif;
-  font-size: clamp(1.625rem, 14.5cqi - 1rem, 2.5rem);
+  /* Scales linearly from 1.75rem on a 20rem-wide page to 2.5rem at 36rem (the max). */
+  font-size: clamp(1.75rem, 0.8125rem + 4.6875cqi, 2.5rem);
   font-weight: normal;
   line-height: 1.1;
   letter-spacing: 0.04em;
@@ -144,48 +142,15 @@ body {
 
 .profile-links {
   grid-area: links;
-  display: grid;
-  grid-template-columns: repeat(3, minmax(0, 1fr));
-  gap: 0.5rem;
-  max-inline-size: 25.5rem;
-}
-
-.profile-link {
-  display: inline-block;
-  flex: 1 1 auto;
-  min-inline-size: 1.5rem;
-  padding: 0.375rem 0.5rem;
   font-family: var(--mono);
-  font-size: 0.8125rem;
-  text-align: center;
-  color: var(--ink);
-  text-decoration: none;
-  background-color: var(--paper);
-  border: 1.5px solid var(--ink);
-  border-radius: 4px;
-}
-
-@media (pointer: coarse) {
-  .profile-link {
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-    min-block-size: 2.75rem;
-  }
-}
-
-@media (hover: hover) {
-  .profile-link:hover {
-    color: var(--paper);
-    background-color: var(--blue);
-    border-color: var(--blue);
-  }
-}
-
-.profile-link:active {
-  color: var(--paper);
-  background-color: var(--blue-dark);
-  border-color: var(--blue-dark);
+  font-size: 0.875rem;
+  text-wrap: balance;
+  /* Links are separated by real spaces (so lines can break between them);
+     widen each space to a 1rem gap. 1ch is one space in the monospace font. */
+  word-spacing: calc(1rem - 1ch);
+  /* Lines 24.5px apart, so each link meets the WCAG 2.5.8 (AA) 24px
+     target-spacing minimum on every device. */
+  line-height: 1.75;
 }
 
 /* Main */
@@ -193,7 +158,6 @@ main {
   display: grid;
   gap: 2.5rem;
   margin-block-start: 2.25rem;
-  line-height: 1.5;
 }
 
 .intro {
@@ -208,7 +172,6 @@ main {
 .bio > ul {
   margin-block-start: 0.75rem;
   padding-inline-start: 2rem;
-  list-style: disc;
 }
 
 .bio li + li {
@@ -234,14 +197,25 @@ main {
   list-style: none;
 }
 
+/* Thumbnail beside the text at every width; it is decorative, so it can shrink on phones. */
 .paper {
+  position: relative;
   display: grid;
-  gap: 0.75rem;
+  grid-template-columns: min(11rem, 30%) 1fr;
+  gap: 1rem;
+  align-items: start;
+}
+
+/* Stretch the title link over the whole entry so the thumbnail is clickable too,
+   keeping one link per paper. */
+.paper .link::after {
+  content: "";
+  position: absolute;
+  inset: 0;
 }
 
 .paper-thumb {
   inline-size: 100%;
-  max-inline-size: 12.5rem;
   aspect-ratio: 16 / 10;
   object-fit: contain;
   padding: 4px;
@@ -260,20 +234,14 @@ main {
   margin-block-start: 0.75rem;
 }
 
-/* Side by side once the photo (7.5rem), gap (1.5rem) and one row of links (~25.5rem) fit. */
-@container page (inline-size >= 35rem) {
+/* Links beside the photo only when all six fit on one line there (~22.6rem,
+   plus the photo and gap), so at most two rows sit beside the photo.
+   Re-measure if the links change. */
+@container page (inline-size >= 31rem) {
   .profile-header {
-    grid-template-columns: auto auto;
-    justify-content: start;
     grid-template-areas:
       "photo name"
       "photo links";
-    column-gap: 1.5rem;
-  }
-
-  .profile-photo {
-    inline-size: 7.5rem;
-    block-size: 7.5rem;
   }
 
   .profile-name {
@@ -282,14 +250,5 @@ main {
 
   .profile-links {
     align-self: start;
-    display: flex;
-    flex-wrap: wrap;
-    max-inline-size: none;
-  }
-
-  .paper {
-    grid-template-columns: 11rem 1fr;
-    gap: 1rem;
-    align-items: center;
   }
 }

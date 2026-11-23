@@ -6,20 +6,17 @@ import "./globals.css"
 const plexMono = IBM_Plex_Mono({
   subsets: ["latin"],
   weight: ["400", "700"],
-  display: "swap",
   variable: "--font-plex-mono",
 })
 
 const plexSans = IBM_Plex_Sans({
   subsets: ["latin"],
-  display: "swap",
   variable: "--font-plex-sans",
 })
 
 const tiempos = localFont({
-  src: "./fonts/TiemposHeadline-Bold.otf",
+  src: "./fonts/TiemposHeadline-Bold.woff2",
   weight: "400",
-  display: "swap",
   variable: "--font-tiempos",
 })
 
@@ -37,7 +34,7 @@ export const metadata: Metadata = {
     siteName: "Rishi Khare",
     type: "profile",
   },
-  twitter: { card: "summary" },
+  twitter: { card: "summary_large_image" },
 }
 
 export const viewport: Viewport = {
