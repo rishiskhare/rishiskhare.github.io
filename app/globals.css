@@ -9,8 +9,7 @@
   --mono: var(--font-plex-mono), monospace;
 }
 
-img,
-.shell {
+img {
   box-sizing: border-box;
 }
 
@@ -93,15 +92,13 @@ body {
 
 /* Header */
 .shell {
-  display: flex;
-  min-block-size: 100dvh;
-  align-items: center;
-  justify-content: center;
-  padding: 2.5rem 2rem;
+  /* Space above and below grows with the window: ~43px on phones, 96px on laptops. */
+  padding: clamp(2.5rem, 1.5rem + 5vw, 6rem) 2rem;
 }
 
 .page {
   container: page / inline-size;
+  margin-inline: auto;
   inline-size: 100%;
   max-inline-size: 36rem;
 }
