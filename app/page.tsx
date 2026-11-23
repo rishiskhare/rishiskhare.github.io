@@ -44,8 +44,8 @@ export default function Home() {
     <div className="shell">
       <div className="page">
         <header className="profile-header">
-          <Image src={profilePhoto} alt="Rishi Khare" loading="eager" fetchPriority="high" className="profile-photo" />
-          <h1 className="profile-name">Hi, I’m Rishi!</h1>
+          <Image src={profilePhoto} alt="" loading="eager" fetchPriority="high" className="profile-photo" />
+          <h1 className="profile-name">Rishi Khare</h1>
           <nav aria-label="Profiles" className="profile-links">
             {profileLinks.map((link) => (
               <Fragment key={link.label}>

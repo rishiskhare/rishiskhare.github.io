@@ -131,7 +131,9 @@ body {
   font-size: clamp(1.75rem, 0.8125rem + 4.6875cqi, 2.5rem);
   font-weight: normal;
   line-height: 1.1;
-  letter-spacing: 0.04em;
+  /* Gives back the room the 1px outline (text-stroke) takes from each letter. */
+  letter-spacing: 0.02em;
+  word-spacing: 0.05em;
   color: var(--heading);
   -webkit-text-stroke: 1px var(--ink);
   text-wrap: balance;
