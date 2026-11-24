@@ -92,8 +92,8 @@ body {
 
 /* Header */
 .shell {
-  /* Space above and below grows with the window: ~43px on phones, 96px on laptops. */
-  padding: clamp(2.5rem, 1.5rem + 5vw, 6rem) 2rem;
+  /* Space above and below grows with the window: ~43px on phones, 64px on laptops. */
+  padding: clamp(2.5rem, 1.5rem + 5vw, 4rem) 2rem;
 }
 
 .page {
