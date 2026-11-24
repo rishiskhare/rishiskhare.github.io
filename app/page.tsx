@@ -9,13 +9,19 @@ import agentsuiteFigure from "./images/papers/agentsuite.webp"
 const scholarUrl = "https://scholar.google.com/citations?user=1SFrDE4AAAAJ"
 const githubUrl = "https://github.com/rishiskhare"
 
-const profileLinks = [
-  { href: "mailto:rishiskhare@gmail.com", label: "email" },
-  { href: "https://drive.google.com/file/d/1alYXNIwHRUtblUzGPGK3b8kSBHmdDIMx/view?usp=sharing", label: "resume" },
-  { href: "https://www.linkedin.com/in/rishi-khare/", label: "linkedin" },
-  { href: githubUrl, label: "github" },
-  { href: "https://x.com/rishiskhare", label: "x" },
-  { href: scholarUrl, label: "scholar" },
+// Two groups that each stay on one line, so the links break evenly (3 + 3) in
+// every browser instead of relying on text-wrap: balance, which some phones skip.
+const profileLinkGroups = [
+  [
+    { href: "mailto:rishiskhare@gmail.com", label: "email" },
+    { href: "https://drive.google.com/file/d/1alYXNIwHRUtblUzGPGK3b8kSBHmdDIMx/view?usp=sharing", label: "resume" },
+    { href: "https://www.linkedin.com/in/rishi-khare/", label: "linkedin" },
+  ],
+  [
+    { href: githubUrl, label: "github" },
+    { href: "https://x.com/rishiskhare", label: "x" },
+    { href: scholarUrl, label: "scholar" },
+  ],
 ]
 
 const papers = [
@@ -47,11 +53,17 @@ export default function Home() {
           <Image src={profilePhoto} alt="" loading="eager" fetchPriority="high" className="profile-photo" />
           <h1 className="profile-name">Rishi Khare</h1>
           <nav aria-label="Profiles" className="profile-links">
-            {profileLinks.map((link) => (
-              <Fragment key={link.label}>
-                <a href={link.href} className="link profile-link">
-                  {link.label}
-                </a>{" "}
+            {profileLinkGroups.map((group) => (
+              <Fragment key={group[0].label}>
+                <span className="profile-link-group">
+                  {group.map((link) => (
+                    <Fragment key={link.label}>
+                      <a href={link.href} className="link profile-link">
+                        {link.label}
+                      </a>{" "}
+                    </Fragment>
+                  ))}
+                </span>{" "}
               </Fragment>
             ))}
           </nav>

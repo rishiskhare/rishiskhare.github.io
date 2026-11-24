@@ -127,8 +127,8 @@ body {
 .profile-name {
   grid-area: name;
   font-family: var(--font-tiempos), serif;
-  /* Scales linearly from 1.75rem on a 20rem-wide page to 2.5rem at 36rem (the max). */
-  font-size: clamp(1.75rem, 0.8125rem + 4.6875cqi, 2.5rem);
+  /* Scales linearly from 2rem on a 20rem-wide page to 2.75rem at 36rem (the max). */
+  font-size: clamp(2rem, 1.0625rem + 4.6875cqi, 2.75rem);
   font-weight: normal;
   line-height: 1.1;
   /* Gives back the room the 1px outline (text-stroke) takes from each letter. */
@@ -143,13 +143,17 @@ body {
   grid-area: links;
   font-family: var(--mono);
   font-size: 0.875rem;
-  text-wrap: balance;
   /* Links are separated by real spaces (so lines can break between them);
      widen each space to a 1rem gap. 1ch is one space in the monospace font. */
   word-spacing: calc(1rem - 1ch);
   /* Lines 24.5px apart, so each link meets the WCAG 2.5.8 (AA) 24px
      target-spacing minimum on every device. */
   line-height: 1.75;
+}
+
+/* Each group stays together, so lines break only between groups. */
+.profile-link-group {
+  display: inline-block;
 }
 
 /* Main */
