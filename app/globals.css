@@ -3,8 +3,6 @@
   --text: rgba(0, 0, 0, 0.85);
   --ink: #1f1a17;
   --blue: #2a5fc7;
-  --blue-dark: #1b3f8f;
-  --highlight: color-mix(in srgb, var(--blue) 25%, transparent);
   --heading: #336ee2;
   --mono: var(--font-plex-mono), monospace;
 }
@@ -58,30 +56,18 @@ body {
   white-space: nowrap;
 }
 
-/* Links: underlined at rest, a highlighter band on hover and keyboard focus. */
+/* Links: underlined, and they lighten on hover. Keyboard focus keeps full
+   colour and gets the focus ring instead. */
 .link {
   color: var(--blue);
   text-decoration: underline;
   text-decoration-thickness: 1px;
   text-underline-offset: 3px;
-  padding: 0 2px;
-  margin: 0 -2px;
-  -webkit-box-decoration-break: clone;
-  box-decoration-break: clone;
-  background: linear-gradient(var(--highlight), var(--highlight)) left 0 bottom 0.1em / 100% 0 no-repeat;
-}
-
-.link:focus-visible {
-  color: var(--blue-dark);
-  text-decoration-color: transparent;
-  background-size: 100% 1em;
 }
 
 @media (hover: hover) {
   .link:hover {
-    color: var(--blue-dark);
-    text-decoration-color: transparent;
-    background-size: 100% 1em;
+    color: color-mix(in srgb, var(--blue) 40%, var(--bg));
   }
 }
 
@@ -202,19 +188,10 @@ main {
 
 /* Thumbnail beside the text at every width; it is decorative, so it can shrink on phones. */
 .paper {
-  position: relative;
   display: grid;
   grid-template-columns: min(11rem, 30%) 1fr;
   gap: 1rem;
   align-items: start;
-}
-
-/* Stretch the title link over the whole entry so the thumbnail is clickable too,
-   keeping one link per paper. */
-.paper .link::after {
-  content: "";
-  position: absolute;
-  inset: 0;
 }
 
 .paper-thumb {
