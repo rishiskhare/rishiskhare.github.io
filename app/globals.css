@@ -232,3 +232,11 @@ main {
     align-self: start;
   }
 }
+
+/* From the same width, a paper's text is about as tall as its thumbnail or
+   shorter, so centre the two; narrower, the text runs taller and stays top-aligned. */
+@container page (inline-size >= 31rem) {
+  .paper {
+    align-items: center;
+  }
+}
